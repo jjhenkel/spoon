@@ -128,6 +128,9 @@ public class JDTTreeBuilderHelper {
 			return result;
 		} else {
 			CtTypeReference ctTypeReference = jdtTreeBuilder.getReferencesBuilder().<Throwable>getTypeReference(typeReference.resolvedType);
+			if (ctTypeReference == null) {
+				ctTypeReference = jdtTreeBuilder.getReferencesBuilder().<Throwable>getTypeReference(typeReference.toString());
+			}
 			return result.<CtCatchVariable>setType(ctTypeReference);
 		}
 	}

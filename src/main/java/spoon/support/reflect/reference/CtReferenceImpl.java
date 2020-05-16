@@ -49,7 +49,7 @@ public abstract class CtReferenceImpl extends CtElementImpl implements CtReferen
 	@Override
 	public <T extends CtReference> T setSimpleName(String simplename) {
 		Factory factory = getFactory();
-		checkIdentiferForJLSCorrectness(simplename);
+		// checkIdentiferForJLSCorrectness(simplename); // Don't want this for now 
 		if (factory == null) {
 			this.simplename = simplename;
 			return (T) this;

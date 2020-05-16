@@ -212,9 +212,9 @@ public class DefaultJavaPrettyPrinter implements CtVisitor, PrettyPrinter {
 	 * Default value is "true" for backward compatibility.
 	 * If false: obey "implicit" directive
 	 */
-	protected boolean ignoreImplicit = true;
+	protected boolean ignoreImplicit = false;
 
-	public boolean inlineElseIf = true;
+	public boolean inlineElseIf = false;
 
 	/**
 	 * Creates a new code generator visitor.
@@ -606,6 +606,9 @@ public class DefaultJavaPrettyPrinter implements CtVisitor, PrettyPrinter {
 					type -> scan(type));
 			printer.writeSpace().writeIdentifier(parameter.getSimpleName());
 		} else {
+			if (parameter.getType() == null) {
+				printer.writeSeparator("Exception");
+			}
 			scan(parameter);
 		}
 		printer.writeSeparator(")").writeSpace();

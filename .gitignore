@@ -4,6 +4,8 @@ dist/
 nbproject/
 target/
 dependency-reduced-pom.xml
+maven-cache/
+spoon-dataflow/.gradle/
 
 # Netbeans
 nb-configuration.xml
